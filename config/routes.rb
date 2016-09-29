@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
   get "/" => "welcome#index"
 
+  root "welcome#index"
+
+  resources :articles
+
   get "/about" => "welcome#about"
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # get"/articles/:id(.:format)"  =>  "article#show"
+  get "/articles/:id(.:format)" => "articles#show"
+
+  get "/articles(.:format)" => "articles#index"
+
 end
